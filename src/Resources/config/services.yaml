@@ -1,0 +1,17 @@
+
+parameters: ~
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Seacommerce\Mapper\Registry: ~
+    Seacommerce\Mapper\RegistryInterface: '@Seacommerce\Mapper\Registry'
+
+    Seacommerce\Mapper\Mapper: ~
+    Seacommerce\Mapper\MapperInterface: '@Seacommerce\Mapper\Mapper'
+
+    Seacommerce\Mapper\Compiler\PropertyAccessCompiler: ~
+    Seacommerce\Mapper\Compiler\CompilerInterface: '@Seacommerce\Mapper\Compiler\PropertyAccessCompiler'

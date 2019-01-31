@@ -1,0 +1,45 @@
+{
+  "name": "seacommerce/mapper-bundle",
+  "type": "bundle",
+  "description": "Symfony bundle for seacommerce/mapper",
+  "keywords": [
+    "seacommerce"
+  ],
+  "homepage": "https://seacommerce.nl",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sil Moelker",
+      "email": "sil@seacommerce.nl"
+    },
+    {
+      "name": "Niels Steenbakker",
+      "email": "niels@seacommerce.nl"
+    },
+    {
+      "name": "Seacommerce",
+      "homepage": "https://seacommerce.nl",
+      "email": "info@seacommerce.nl"
+    }
+  ],
+  "require": {
+    "symfony/http-kernel": "^4.2",
+    "symfony/yaml": "^4.2",
+    "symfony/config": "^4.2",
+    "symfony/dependency-injection": "^4.2",
+    "seacommerce/mapper": "^0.1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Seacommerce\\Mapper\\Bundle\\": "./src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Seacommerce\\Mapper\\Bundle\\Test\\": "./tests/"
+    }
+  }
+}
