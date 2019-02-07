@@ -34,7 +34,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Seacommerce\\Mapper\\Bundle\\": "./src/"
+      "Seacommerce\\MapperBundle\\": "./src/"
     }
   },
   "autoload-dev": {

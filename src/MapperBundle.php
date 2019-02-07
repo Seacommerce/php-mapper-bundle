@@ -1,8 +1,8 @@
 <?php
 
-namespace Seacommerce\Mapper\Bundle;
+namespace Seacommerce\MapperBundle;
 
-use Seacommerce\Mapper\Bundle\DependencyInjection\BundleExtension;
+use Seacommerce\MapperBundle\DependencyInjection\BundleExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

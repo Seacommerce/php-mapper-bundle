@@ -1,6 +1,6 @@
 <?php
 
-namespace Seacommerce\Mapper\Bundle\DependencyInjection;
+namespace Seacommerce\MapperBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;

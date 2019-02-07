@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Seacommerce\Mapper\Bundle\Test;
+namespace Seacommerce\MapperBundle\Test;
 
 use PHPUnit\Framework\TestCase;
-use Seacommerce\Mapper\Bundle\MapperBundle;
+use Seacommerce\MapperBundle\MapperBundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class BundleTest extends TestCase

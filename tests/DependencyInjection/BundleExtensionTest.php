@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Seacommerce\Mapper\Bundle\Test\DependencyInjection;
+namespace Seacommerce\MapperBundle\Test\DependencyInjection;
 
 use PHPUnit\Framework\TestCase;
-use Seacommerce\Mapper\Bundle\DependencyInjection\BundleExtension;
+use Seacommerce\MapperBundle\DependencyInjection\BundleExtension;
 use Seacommerce\Mapper\Compiler\CompilerInterface;
 use Seacommerce\Mapper\Compiler\PropertyAccessCompiler;
 use Seacommerce\Mapper\Mapper;
