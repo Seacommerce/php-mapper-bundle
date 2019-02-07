@@ -1,4 +1,3 @@
-
 parameters: ~
 
 services:
@@ -7,11 +6,26 @@ services:
         autoconfigure: true
         public: false
 
-    Seacommerce\Mapper\Registry: ~
-    Seacommerce\Mapper\RegistryInterface: '@Seacommerce\Mapper\Registry'
+    Seacommerce\MapperBundle\RegistryFactory:
+        arguments:
+            $scope: 'default'
+            $registrations: !tagged mapper.mapping_registration
+
+    Seacommerce\Mapper\Registry:
+        factory: ['@Seacommerce\MapperBundle\RegistryFactory', getRegistry]
+
+    Seacommerce\Mapper\RegistryInterface:
+        alias: Seacommerce\Mapper\Registry
+        public: true
 
     Seacommerce\Mapper\Mapper: ~
-    Seacommerce\Mapper\MapperInterface: '@Seacommerce\Mapper\Mapper'
+
+    Seacommerce\Mapper\MapperInterface:
+        alias: Seacommerce\Mapper\Mapper
+        public: true
 
     Seacommerce\Mapper\Compiler\PropertyAccessCompiler: ~
-    Seacommerce\Mapper\Compiler\CompilerInterface: '@Seacommerce\Mapper\Compiler\PropertyAccessCompiler'
+
+    Seacommerce\Mapper\Compiler\CompilerInterface:
+        alias: Seacommerce\Mapper\Compiler\PropertyAccessCompiler
+        public: true

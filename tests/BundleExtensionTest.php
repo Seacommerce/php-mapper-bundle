@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Seacommerce\MapperBundle\Test\DependencyInjection;
+namespace Seacommerce\MapperBundle\Test;
 
 use PHPUnit\Framework\TestCase;
 use Seacommerce\MapperBundle\DependencyInjection\BundleExtension;
