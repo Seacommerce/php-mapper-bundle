@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0bc945b2b7bf76d9e17e8250cc905e73",
+    "content-hash": "2a9915e83f96c49ec6904be3c568d92c",
     "packages": [
         {
             "name": "nikic/php-parser",
@@ -307,16 +307,16 @@
         },
         {
             "name": "seacommerce/mapper",
-            "version": "v0.1.4",
+            "version": "v0.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seacommerce/php-mapper.git",
-                "reference": "42bc2f9616844d0776c7b4c44f96c1cd9b64d22f"
+                "reference": "f2d6e0d912b88e2365dcfa173cb65507f8f39f00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seacommerce/php-mapper/zipball/42bc2f9616844d0776c7b4c44f96c1cd9b64d22f",
-                "reference": "42bc2f9616844d0776c7b4c44f96c1cd9b64d22f",
+                "url": "https://api.github.com/repos/Seacommerce/php-mapper/zipball/f2d6e0d912b88e2365dcfa173cb65507f8f39f00",
+                "reference": "f2d6e0d912b88e2365dcfa173cb65507f8f39f00",
                 "shasum": ""
             },
             "require": {
@@ -358,7 +358,7 @@
             "keywords": [
                 "seacommerce"
             ],
-            "time": "2019-02-07T10:44:34+00:00"
+            "time": "2019-02-07T10:55:28+00:00"
         },
         {
             "name": "symfony/config",
