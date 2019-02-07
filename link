@@ -1,0 +1,24 @@
+#!/usr/bin/env php
+<?php
+
+require_once './vendor/autoload.php';
+
+use Symfony\Component\Filesystem\Filesystem;
+
+
+$directories = [
+    'vendor/seacommerce/mapper' => '../mapper'
+];
+
+$filesystem = new Filesystem();
+foreach ($directories as $link => $folder) {
+    $link = __DIR__ . '/' . $link;
+    $folder =  __DIR__ . '/' . $folder;
+    if(is_link($link)) {
+        unlink($link);
+    } else if(is_dir($link)) {
+        $filesystem->remove($link);
+    }
+    echo "$link => $folder" . PHP_EOL;
+    $filesystem->symlink($folder, $link);
+}

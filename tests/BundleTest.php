@@ -3,9 +3,8 @@
 namespace Seacommerce\MapperBundle\Test;
 
 use PHPUnit\Framework\TestCase;
-use Seacommerce\Mapper\Bundle\Test\Mock\Source;
-use Seacommerce\Mapper\Bundle\Test\Mock\Target;
-use Seacommerce\Mapper\Bundle\Test\TestKernel;
+use Seacommerce\MapperBundle\Test\Mock\Source;
+use Seacommerce\MapperBundle\Test\Mock\Target;
 use Seacommerce\Mapper\Compiler\CompilerInterface;
 use Seacommerce\Mapper\Compiler\PropertyAccessCompiler;
 use Seacommerce\Mapper\ConfigurationInterface;

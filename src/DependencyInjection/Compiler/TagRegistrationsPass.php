@@ -17,7 +17,7 @@ class TagRegistrationsPass implements CompilerPassInterface
             if (!class_exists($class)) {
                 continue;
             }
-            if (is_subclass_of($class, MappingRegistrationInterface::class)) {
+            if (!is_subclass_of($class, MappingRegistrationInterface::class)) {
                 continue;
             }
             if ($definition->hasTag('mapper.mapping_registration')) {

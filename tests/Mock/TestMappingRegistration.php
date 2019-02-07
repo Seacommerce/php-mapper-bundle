@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Seacommerce\Mapper\Bundle\Test\Mock;
+namespace Seacommerce\MapperBundle\Test\Mock;
 
 use Seacommerce\Mapper\Registry;
 use Seacommerce\MapperBundle\MappingRegistrationInterface;

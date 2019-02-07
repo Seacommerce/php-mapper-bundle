@@ -1,6 +1,6 @@
 <?php
 
-namespace Seacommerce\Mapper\Bundle\Test;
+namespace Seacommerce\MapperBundle\Test;
 
 use Seacommerce\MapperBundle\MapperBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
