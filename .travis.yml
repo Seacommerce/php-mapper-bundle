@@ -1,14 +1,5 @@
 language: php
 
-php:
-    - 7.1
-    - 7.2
-    - nightly
-
-ignore:
-    - README.md
-    - .gitignore
-
 matrix:
     fast_finish: true
     include:
@@ -16,6 +7,9 @@ matrix:
         - php: 7.2
     allow_failures:
         - php: nightly
+ignore:
+    - README.md
+    - .gitignore
 
 before_script: composer install
 
