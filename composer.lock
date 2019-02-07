@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "392ead0c587cb755d3e7b646d5f32077",
+    "content-hash": "6fa600743e670e724e358a2659869044",
     "packages": [
         {
             "name": "nikic/php-parser",
@@ -308,16 +308,11 @@
         {
             "name": "seacommerce/mapper",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Seacommerce/php-mapper.git",
-                "reference": "f2d6e0d912b88e2365dcfa173cb65507f8f39f00"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Seacommerce/php-mapper/zipball/f2d6e0d912b88e2365dcfa173cb65507f8f39f00",
+                "type": "path",
+                "url": "/Users/silmoelker/Programming/seacommerce/github/mapper",
                 "reference": "f2d6e0d912b88e2365dcfa173cb65507f8f39f00",
-                "shasum": ""
+                "shasum": null
             },
             "require": {
                 "nikic/php-parser": "^4.2",
@@ -334,7 +329,11 @@
                     "Seacommerce\\Mapper\\": "./src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Seacommerce\\Mapper\\Test\\": "./tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -349,8 +348,8 @@
                 },
                 {
                     "name": "Seacommerce",
-                    "email": "info@seacommerce.nl",
-                    "homepage": "https://seacommerce.nl"
+                    "homepage": "https://seacommerce.nl",
+                    "email": "info@seacommerce.nl"
                 }
             ],
             "description": "Library for mapping data between types.",
@@ -358,7 +357,9 @@
             "keywords": [
                 "seacommerce"
             ],
-            "time": "2019-02-07T10:55:28+00:00"
+            "transport-options": {
+                "symlink": true
+            }
         },
         {
             "name": "symfony/config",
@@ -2519,7 +2520,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "seacommerce/mapper": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],

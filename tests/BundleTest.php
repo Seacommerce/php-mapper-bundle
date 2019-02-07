@@ -3,6 +3,7 @@
 namespace Seacommerce\MapperBundle\Test;
 
 use PHPUnit\Framework\TestCase;
+use Seacommerce\MapperBundle\CacheWarmer;
 use Seacommerce\MapperBundle\Test\Mock\Source;
 use Seacommerce\MapperBundle\Test\Mock\Target;
 use Seacommerce\Mapper\Compiler\CompilerInterface;
@@ -10,8 +11,6 @@ use Seacommerce\Mapper\Compiler\PropertyAccessCompiler;
 use Seacommerce\Mapper\ConfigurationInterface;
 use Seacommerce\Mapper\Mapper;
 use Seacommerce\Mapper\MapperInterface;
-use Seacommerce\Mapper\Registry;
-use Seacommerce\Mapper\RegistryInterface;
 
 class BundleTest extends TestCase
 {
@@ -23,17 +22,19 @@ class BundleTest extends TestCase
 
         $this->assertTrue($container->has(MapperInterface::class));
         $this->assertTrue($container->has(CompilerInterface::class));
-        $this->assertTrue($container->has(RegistryInterface::class));
+        $this->assertTrue($container->has(CacheWarmer::class));
 
+        /** @var MapperInterface $mapper */
         $mapper = $container->get(MapperInterface::class);
         $this->assertInstanceOf(Mapper::class, $mapper);
 
         $compiler = $container->get(CompilerInterface::class);
         $this->assertInstanceOf(PropertyAccessCompiler::class, $compiler);
+        $this->assertEquals($kernel->getCacheDir() . '/seacommerce/mapper/', $compiler->getCacheFolder());
 
-        $registry = $container->get(RegistryInterface::class);
-        $this->assertInstanceOf(Registry::class, $registry);
-        $this->assertEquals('default', $registry->getScope());
+
+        $registry = $mapper->getRegistry();
+        $this->assertEquals('default',$registry->getScope());
 
         $conf = $registry->get(Source::class, Target::class);
         $this->assertNotNull($conf);

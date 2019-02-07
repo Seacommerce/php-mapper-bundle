@@ -1,4 +1,5 @@
-parameters: ~
+parameters:
+    sc_mapper.compiler_cache_dir: '%kernel.cache_dir%/seacommerce/mapper/'
 
 services:
     _defaults:
@@ -6,26 +7,21 @@ services:
         autoconfigure: true
         public: false
 
-    Seacommerce\MapperBundle\RegistryFactory:
+    Seacommerce\MapperBundle\DefaultMapperFactory:
         arguments:
-            $scope: 'default'
             $registrations: !tagged mapper.mapping_registration
 
-    Seacommerce\Mapper\Registry:
-        factory: ['@Seacommerce\MapperBundle\RegistryFactory', getRegistry]
-
-    Seacommerce\Mapper\RegistryInterface:
-        alias: Seacommerce\Mapper\Registry
-        public: true
-
-    Seacommerce\Mapper\Mapper: ~
-
     Seacommerce\Mapper\MapperInterface:
-        alias: Seacommerce\Mapper\Mapper
-        public: true
+        factory: ['@Seacommerce\MapperBundle\DefaultMapperFactory', create]
+        public: trie
 
-    Seacommerce\Mapper\Compiler\PropertyAccessCompiler: ~
+    Seacommerce\Mapper\Compiler\PropertyAccessCompiler:
+        arguments:
+            $cacheFolder: '%sc_mapper.compiler_cache_dir%'
 
     Seacommerce\Mapper\Compiler\CompilerInterface:
         alias: Seacommerce\Mapper\Compiler\PropertyAccessCompiler
+        public: true
+
+    Seacommerce\MapperBundle\CacheWarmer:
         public: true

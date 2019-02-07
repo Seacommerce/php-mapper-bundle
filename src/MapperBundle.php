@@ -17,6 +17,7 @@ class MapperBundle extends Bundle
     function build(ContainerBuilder $container)
     {
         parent::build($container);
-        $container->addCompilerPass(new TagRegistrationsPass());
+        $container->registerForAutoconfiguration(MappingRegistrationInterface::class)
+            ->addTag('mapper.mapping_registration');
     }
 }
