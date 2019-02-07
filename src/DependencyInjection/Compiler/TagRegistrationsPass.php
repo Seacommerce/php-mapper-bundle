@@ -14,7 +14,7 @@ class TagRegistrationsPass implements CompilerPassInterface
     {
         foreach ($container->getDefinitions() as $definition) {
             $class = $definition->getClass();
-            if (!class_exists($class, false)) {
+            if (!class_exists($class)) {
                 continue;
             }
             $interfaces = class_implements($class);
