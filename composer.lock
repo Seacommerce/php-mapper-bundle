@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6fa600743e670e724e358a2659869044",
+    "content-hash": "cc88cf93f48c6c221fc3001c585d4a9e",
     "packages": [
         {
             "name": "nikic/php-parser",
@@ -307,12 +307,17 @@
         },
         {
             "name": "seacommerce/mapper",
-            "version": "dev-master",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seacommerce/php-mapper.git",
+                "reference": "19ede3ff0b5e2f500aa7a4a0ae86af99974c03b8"
+            },
             "dist": {
-                "type": "path",
-                "url": "/Users/silmoelker/Programming/seacommerce/github/mapper",
-                "reference": "f2d6e0d912b88e2365dcfa173cb65507f8f39f00",
-                "shasum": null
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seacommerce/php-mapper/zipball/19ede3ff0b5e2f500aa7a4a0ae86af99974c03b8",
+                "reference": "19ede3ff0b5e2f500aa7a4a0ae86af99974c03b8",
+                "shasum": ""
             },
             "require": {
                 "nikic/php-parser": "^4.2",
@@ -329,11 +334,7 @@
                     "Seacommerce\\Mapper\\": "./src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Seacommerce\\Mapper\\Test\\": "./tests/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -348,8 +349,8 @@
                 },
                 {
                     "name": "Seacommerce",
-                    "homepage": "https://seacommerce.nl",
-                    "email": "info@seacommerce.nl"
+                    "email": "info@seacommerce.nl",
+                    "homepage": "https://seacommerce.nl"
                 }
             ],
             "description": "Library for mapping data between types.",
@@ -357,9 +358,7 @@
             "keywords": [
                 "seacommerce"
             ],
-            "transport-options": {
-                "symlink": true
-            }
+            "time": "2019-02-08T09:03:28+00:00"
         },
         {
             "name": "symfony/config",
@@ -2520,9 +2519,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "seacommerce/mapper": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],

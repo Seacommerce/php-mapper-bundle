@@ -10,6 +10,7 @@ class TestMappingRegistration implements MappingRegistrationInterface
 {
     public function registerMappings(Registry $registry): void
     {
-        $registry->add(Source::class, Target::class);
+        $registry->add(Source::class, Target::class)
+        ->automap();
     }
 }
