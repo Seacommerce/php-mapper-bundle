@@ -29,7 +29,7 @@
     "symfony/yaml": "^4.2",
     "symfony/config": "^4.2",
     "symfony/dependency-injection": "^4.2",
-    "seacommerce/mapper": ">0.1"
+    "seacommerce/mapper": "^0.2"
   },
   "require-dev": {
     "phpunit/phpunit": "^7.5"

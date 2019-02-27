@@ -32,6 +32,9 @@ class DefaultMapperFactory
     {
         $registry = new Registry('default');
         foreach ($this->registrations as $registration) {
+            $registration->registerValueConverters($registry);
+        }
+        foreach ($this->registrations as $registration) {
             $registration->registerMappings($registry);
         }
 
