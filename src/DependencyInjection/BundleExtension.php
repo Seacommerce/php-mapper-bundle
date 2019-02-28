@@ -28,6 +28,4 @@ class BundleExtension extends Extension
     {
         return 'sc_mapper';
     }
-
-
 }

@@ -32,7 +32,10 @@
     "seacommerce/mapper": "^0.2"
   },
   "require-dev": {
-    "phpunit/phpunit": "^7.5"
+    "phpunit/phpunit": "^7.5",
+    "doctrine/orm": "^2.6",
+    "symfony/orm-pack": "^1.0",
+    "symfony/filesystem": "^4.2"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,

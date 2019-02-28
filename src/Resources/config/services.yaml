@@ -25,3 +25,5 @@ services:
 
     Seacommerce\MapperBundle\CacheWarmer:
         public: true
+
+    Seacommerce\MapperBundle\Doctrine\DoctrineMappingRegistration: ~
