@@ -29,12 +29,12 @@ class BundleTest extends TestCase
         AnnotationRegistry::registerLoader('class_exists');
     }
 
-    public function setUp()
+    public function setUp() : void
     {
         $this->kernel = new TestKernel('test', true);
     }
 
-    public function tearDown()
+    public function tearDown() : void
     {
         $this->kernel = new TestKernel('test', true);
         $this->kernel->shutdown();
@@ -42,7 +42,7 @@ class BundleTest extends TestCase
         $fs->remove($this->kernel->getCacheDir());
     }
 
-    public function testServiceRegistration()
+    public function testServiceRegistration() : void
     {
         $this->kernel->boot();
         $container = $this->kernel->getContainer();
@@ -71,7 +71,7 @@ class BundleTest extends TestCase
 
     /**
      */
-    public function testDoctrineIntegration()
+    public function testDoctrineIntegration() : void
     {
         $this->kernel->enableDoctrineBundle();
         $this->kernel->boot();

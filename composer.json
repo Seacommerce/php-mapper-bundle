@@ -25,6 +25,7 @@
   "repositories": [
   ],
   "require": {
+    "php": ">=7.1",
     "symfony/http-kernel": "^4.2",
     "symfony/yaml": "^4.2",
     "symfony/config": "^4.2",
@@ -47,6 +48,11 @@
   "autoload-dev": {
     "psr-4": {
       "Seacommerce\\MapperBundle\\Test\\": "./tests/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1.x-dev"
     }
   }
 }
