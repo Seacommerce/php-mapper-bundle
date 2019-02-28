@@ -52,7 +52,7 @@ class DoctrineMappingRegistration implements MappingRegistrationInterface
                 if ($classMetadata->isSingleValuedAssociation($association)) {
                     /** @var Type[] $types */
                     $types = $this->propertyInfoExtractor->getTypes($classMetadata->getName(), $association);
-                    if ($types && count($types) !== 1) {
+                    if (!$types || count($types) !== 1) {
                         continue;
                     }
                     /** @var Type $type */
@@ -67,7 +67,7 @@ class DoctrineMappingRegistration implements MappingRegistrationInterface
                     }
                     $idFieldName = array_shift($idFieldNames);
                     $idTypes = $this->propertyInfoExtractor->getTypes($assocMeta->getName(), $idFieldName);
-                    if ($idTypes && count($idTypes) !== 1) {
+                    if (!$idTypes || count($idTypes) !== 1) {
                         continue;
                     }
                     /** @var Type $idType */
