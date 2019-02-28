@@ -401,16 +401,16 @@
         },
         {
             "name": "seacommerce/mapper",
-            "version": "v0.2.1",
+            "version": "v0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seacommerce/php-mapper.git",
-                "reference": "3c94b935677a9e4d7f3631e378c2ce541f5dd365"
+                "reference": "d1c20b4e92ad181cbc11cae101e60551cfe5c5c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seacommerce/php-mapper/zipball/3c94b935677a9e4d7f3631e378c2ce541f5dd365",
-                "reference": "3c94b935677a9e4d7f3631e378c2ce541f5dd365",
+                "url": "https://api.github.com/repos/Seacommerce/php-mapper/zipball/d1c20b4e92ad181cbc11cae101e60551cfe5c5c1",
+                "reference": "d1c20b4e92ad181cbc11cae101e60551cfe5c5c1",
                 "shasum": ""
             },
             "require": {
@@ -453,7 +453,7 @@
             "keywords": [
                 "seacommerce"
             ],
-            "time": "2019-02-27T16:26:12+00:00"
+            "time": "2019-02-28T14:40:59+00:00"
         },
         {
             "name": "symfony/cache",

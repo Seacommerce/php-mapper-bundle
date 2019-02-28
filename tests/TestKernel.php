@@ -64,8 +64,8 @@ class TestKernel extends Kernel
                                 'mappings' => [
                                     'Test' => [
                                         'type' => 'annotation',
-                                        'dir' => __DIR__ . '/Doctrine/Entity',
-                                        'prefix' => 'Seacommerce\MapperBundle\Test\Doctrine',
+                                        'dir' => __DIR__ . '/Mock/Doctrine/Entity',
+                                        'prefix' => 'Seacommerce\MapperBundle\Test\Mock\Doctrine',
                                     ],
                                 ],
                             ],

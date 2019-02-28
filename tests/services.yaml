@@ -4,4 +4,6 @@ services:
         autoconfigure: true
         public: false
 
-    Seacommerce\MapperBundle\Test\Mock\TestMappingRegistration: ~
+    Seacommerce\MapperBundle\Test\Mock\TestMapping: ~
+
+    Seacommerce\MapperBundle\Test\Mock\Doctrine\DoctrineMapping: ~

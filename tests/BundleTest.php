@@ -2,18 +2,18 @@
 
 namespace Seacommerce\MapperBundle\Test;
 
-use Doctrine\Bundle\DoctrineBundle\DependencyInjection\DoctrineExtension;
-use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\AnnotationRegistry;
-use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Framework\TestCase;
+use Seacommerce\Mapper\Compiler\NativeCompiler;
 use Seacommerce\MapperBundle\CacheWarmer;
-use Seacommerce\MapperBundle\DependencyInjection\BundleExtension;
 use Seacommerce\MapperBundle\Doctrine\DoctrineMappingRegistration;
+use Seacommerce\MapperBundle\Test\Mock\Doctrine\Entity\Customer;
+use Seacommerce\MapperBundle\Test\Mock\Doctrine\Entity\Invoice;
+use Seacommerce\MapperBundle\Test\Mock\Doctrine\Entity\InvoiceItem;
+use Seacommerce\MapperBundle\Test\Mock\Doctrine\Model\InvoiceModel;
 use Seacommerce\MapperBundle\Test\Mock\Source;
 use Seacommerce\MapperBundle\Test\Mock\Target;
 use Seacommerce\Mapper\Compiler\CompilerInterface;
-use Seacommerce\Mapper\Compiler\PropertyAccessCompiler;
 use Seacommerce\Mapper\ConfigurationInterface;
 use Seacommerce\Mapper\Mapper;
 use Seacommerce\Mapper\MapperInterface;
@@ -24,7 +24,7 @@ class BundleTest extends TestCase
     /** @var TestKernel */
     private $kernel;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass() : void
     {
         AnnotationRegistry::registerLoader('class_exists');
     }
@@ -57,7 +57,7 @@ class BundleTest extends TestCase
         $this->assertInstanceOf(Mapper::class, $mapper);
 
         $compiler = $container->get(CompilerInterface::class);
-        $this->assertInstanceOf(PropertyAccessCompiler::class, $compiler);
+        $this->assertInstanceOf(NativeCompiler::class, $compiler);
         $this->assertEquals($this->kernel->getCacheDir() . '/seacommerce/mapper/', $compiler->getCacheFolder());
 
 
@@ -79,10 +79,15 @@ class BundleTest extends TestCase
         $container = $this->kernel->getContainer();
         $this->assertTrue($container->has(DoctrineMappingRegistration::class));
 
-
         /** @var MapperInterface $mapper */
         $mapper = $container->get(MapperInterface::class);
         $registry = $mapper->getRegistry();
-        $conf = $registry->get(Source::class, Target::class);
+
+        $entity = new Invoice();
+        $entity->setId(1);
+        $entity->setCustomer((new Customer())->setId(100)->setName("Customer #100"));
+        $entity->getItems()->add(new InvoiceItem());
+        $entity->getItems()->add(new InvoiceItem());
+//        $target = $mapper->map($entity, InvoiceModel::class);
     }
 }

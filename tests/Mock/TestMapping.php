@@ -6,7 +6,7 @@ namespace Seacommerce\MapperBundle\Test\Mock;
 use Seacommerce\Mapper\Registry;
 use Seacommerce\MapperBundle\MappingRegistrationInterface;
 
-class TestMappingRegistration implements MappingRegistrationInterface
+class TestMapping implements MappingRegistrationInterface
 {
     /**
      * @param Registry $registry

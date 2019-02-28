@@ -1,15 +1,16 @@
 <?php
 
 
-namespace Seacommerce\MapperBundle\Test\Doctrine\Entity;
+namespace Seacommerce\MapperBundle\Test\Mock\Doctrine\Entity;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class User
- * @package Seacommerce\MapperBundle\Test\Doctrine\Entity
+ * @package Seacommerce\MapperBundle\Test\Mock\Doctrine\Entity
  *
  * @ORM\Entity
  * @ORM\Table(name="invoice")
@@ -20,9 +21,16 @@ class Invoice
      * @var int|null
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(name="inv_id", type="integer", nullable=false)
      */
     private $id;
+
+    /**
+     * @var Customer|null
+     * @ORM\ManyToOne(targetEntity="Customer")
+     * @ORM\JoinColumn(name="customer_id",referencedColumnName="id", nullable=false)
+     */
+    private $customer;
 
     /**
      * @var Collection|InvoiceItem[]
@@ -49,6 +57,24 @@ class Invoice
     }
 
     /**
+     * @return Customer|null
+     */
+    public function getCustomer(): ?Customer
+    {
+        return $this->customer;
+    }
+
+    /**
+     * @param Customer|null $customer
+     * @return Invoice
+     */
+    public function setCustomer(?Customer $customer): Invoice
+    {
+        $this->customer = $customer;
+        return $this;
+    }
+
+    /**
      * @return Collection|InvoiceItem[]
      */
     public function getItems()
@@ -64,5 +90,10 @@ class Invoice
     {
         $this->items = $items;
         return $this;
+    }
+
+    public function __construct()
+    {
+        $this->items = new ArrayCollection();
     }
 }

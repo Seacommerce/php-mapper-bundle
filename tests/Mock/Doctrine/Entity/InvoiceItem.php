@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Seacommerce\MapperBundle\Test\Doctrine\Entity;
+namespace Seacommerce\MapperBundle\Test\Mock\Doctrine\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
