@@ -37,7 +37,9 @@
     "doctrine/orm": "^2.6",
     "symfony/orm-pack": "^1.0",
     "symfony/filesystem": "^4.2",
-    "ocramius/proxy-manager": "2.1.1"
+    "ocramius/proxy-manager": "2.1.1",
+    "symfony/monolog-bundle": "^3.1",
+    "monolog/monolog": "^1.23"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
@@ -50,6 +52,12 @@
     "psr-4": {
       "Seacommerce\\MapperBundle\\Test\\": "./tests/"
     }
+  },
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true
   },
   "extra": {
     "branch-alias": {
