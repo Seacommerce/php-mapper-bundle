@@ -13,11 +13,16 @@ services:
 
     Seacommerce\Mapper\MapperInterface:
         factory: ['@Seacommerce\MapperBundle\DefaultMapperFactory', create]
-        public: trie
+        public: true
 
-    Seacommerce\Mapper\Compiler\NativeCompiler:
+    Seacommerce\Mapper\Compiler\CachedLoader:
         arguments:
             $cacheFolder: '%sc_mapper.compiler_cache_dir%'
+
+    Seacommerce\Mapper\Compiler\LoaderInterface:
+        alias: Seacommerce\Mapper\Compiler\CachedLoader
+
+    Seacommerce\Mapper\Compiler\NativeCompiler: ~
 
     Seacommerce\Mapper\Compiler\CompilerInterface:
         alias: Seacommerce\Mapper\Compiler\NativeCompiler
@@ -25,5 +30,7 @@ services:
 
     Seacommerce\MapperBundle\CacheWarmer:
         public: true
+
+
 
     Seacommerce\MapperBundle\Doctrine\DoctrineMappingRegistration: ~

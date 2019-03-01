@@ -2,7 +2,9 @@
 
 namespace Seacommerce\MapperBundle;
 
+use Psr\Log\LoggerInterface;
 use Seacommerce\Mapper\Compiler\CompilerInterface;
+use Seacommerce\Mapper\Compiler\LoaderInterface;
 use Seacommerce\Mapper\Mapper;
 use Seacommerce\Mapper\MapperInterface;
 use Seacommerce\Mapper\Registry;
@@ -14,14 +16,23 @@ class DefaultMapperFactory
      */
     private $registrations;
     /**
+     * @var LoggerInterface
+     */
+    private $logger;
+    /**
      * @var CompilerInterface
      */
     private $compiler;
+    /**
+     * @var LoaderInterface
+     */
+    private $loader;
 
-    public function __construct(CompilerInterface $compiler, iterable $registrations)
+    public function __construct(LoaderInterface $loader, LoggerInterface $logger, iterable $registrations)
     {
         $this->registrations = $registrations;
-        $this->compiler = $compiler;
+        $this->logger = $logger;
+        $this->loader = $loader;
     }
 
     /**
@@ -31,15 +42,22 @@ class DefaultMapperFactory
     public function create(): MapperInterface
     {
         $registry = new Registry('default');
+
+        $start = microtime(true);
         foreach ($this->registrations as $registration) {
             $registration->registerValueConverters($registry);
         }
+
         foreach ($this->registrations as $registration) {
             $registration->registerMappings($registry);
         }
+        $end = microtime(true);
+
+        $duration = round(($end - $start)  / 1000, 2);
+        $this->logger->debug("Mapping registration finished in {$duration} ms.");
 
         $registry->validate();
-        $mapper = new Mapper($registry, $this->compiler);
+        $mapper = new Mapper($registry, $this->loader);
         $mapper->compile();
         return $mapper;
     }

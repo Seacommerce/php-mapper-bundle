@@ -5,6 +5,7 @@ namespace Seacommerce\MapperBundle\Test;
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\DoctrineExtension;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Seacommerce\MapperBundle\MapperBundle;
+use Symfony\Bundle\MonologBundle\MonologBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -30,6 +31,7 @@ class TestKernel extends Kernel
     public function registerBundles()
     {
         yield new MapperBundle();
+        yield new MonologBundle();
     }
 
     /**
