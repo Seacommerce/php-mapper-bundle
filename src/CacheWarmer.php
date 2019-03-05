@@ -21,8 +21,13 @@ class CacheWarmer implements CacheWarmerInterface
         return true;
     }
 
+    /**
+     * @param string $cacheDir
+     * @throws \Exception
+     */
     public function warmUp($cacheDir)
     {
         $mapper = $this->factory->create();
+        $mapper->compile();
     }
 }
