@@ -56,9 +56,7 @@ class DefaultMapperFactory
         $duration = round(($end - $start)  / 1000, 2);
         $this->logger->debug("Mapping registration finished in {$duration} ms.");
 
-        $registry->validate();
         $mapper = new Mapper($registry, $this->loader);
-        $mapper->compile();
         return $mapper;
     }
 }
