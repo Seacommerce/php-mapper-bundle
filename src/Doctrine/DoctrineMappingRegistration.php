@@ -41,42 +41,43 @@ class DoctrineMappingRegistration implements MappingRegistrationInterface
     {
         // Collection -> array
         // Entity -> id
-        $allMetaData = $this->em->getMetadataFactory()->getAllMetadata();
-
-        foreach ($allMetaData as $classMetadata) {
-            $associations = $classMetadata->getAssociationNames();
-            if (!$associations) {
-                continue;
-            }
-            foreach ($associations as $association) {
-                if ($classMetadata->isSingleValuedAssociation($association)) {
-                    /** @var Type[] $types */
-                    $types = $this->propertyInfoExtractor->getTypes($classMetadata->getName(), $association);
-                    if (!$types || count($types) !== 1) {
-                        continue;
-                    }
-                    /** @var Type $type */
-                    $type = array_shift($types);
-                    if ($type->getClassName() === null) {
-                        continue;
-                    }
-                    $assocMeta = $this->em->getMetadataFactory()->getMetadataFor($type->getClassName());
-                    $idFieldNames = $assocMeta->getIdentifierFieldNames();
-                    if (!$idFieldNames || count($idFieldNames) !== 1) {
-                        continue;
-                    }
-                    $idFieldName = array_shift($idFieldNames);
-                    $idTypes = $this->propertyInfoExtractor->getTypes($assocMeta->getName(), $idFieldName);
-                    if (!$idTypes || count($idTypes) !== 1) {
-                        continue;
-                    }
-                    /** @var Type $idType */
-                    $idType = array_shift($types);
-
-//                    $registry->registerValueConverter($type->getClassName(), $idType, )
-                }
-            }
-        }
+        // TODO: Implement efficiently
+//        $allMetaData = $this->em->getMetadataFactory()->getAllMetadata();
+//
+//        foreach ($allMetaData as $classMetadata) {
+//            $associations = $classMetadata->getAssociationNames();
+//            if (!$associations) {
+//                continue;
+//            }
+//            foreach ($associations as $association) {
+//                if ($classMetadata->isSingleValuedAssociation($association)) {
+//                    /** @var Type[] $types */
+//                    $types = $this->propertyInfoExtractor->getTypes($classMetadata->getName(), $association);
+//                    if (!$types || count($types) !== 1) {
+//                        continue;
+//                    }
+//                    /** @var Type $type */
+//                    $type = array_shift($types);
+//                    if ($type->getClassName() === null) {
+//                        continue;
+//                    }
+//                    $assocMeta = $this->em->getMetadataFactory()->getMetadataFor($type->getClassName());
+//                    $idFieldNames = $assocMeta->getIdentifierFieldNames();
+//                    if (!$idFieldNames || count($idFieldNames) !== 1) {
+//                        continue;
+//                    }
+//                    $idFieldName = array_shift($idFieldNames);
+//                    $idTypes = $this->propertyInfoExtractor->getTypes($assocMeta->getName(), $idFieldName);
+//                    if (!$idTypes || count($idTypes) !== 1) {
+//                        continue;
+//                    }
+//                    /** @var Type $idType */
+//                    $idType = array_shift($types);
+//
+////                    $registry->registerValueConverter($type->getClassName(), $idType, )
+//                }
+//            }
+//        }
     }
 
     public function registerMappings(Registry $registry): void
