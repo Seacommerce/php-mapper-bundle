@@ -6,10 +6,6 @@ php:
     - '7.3'
     - nightly
 
-env:
-    global:
-        - SYMFONY_PHPUNIT_VERSION="8"
-
 ignore:
     - README.md
     - .gitignore
