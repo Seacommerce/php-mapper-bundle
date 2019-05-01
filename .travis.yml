@@ -7,7 +7,8 @@ php:
     - nightly
 
 env:
-    PHPUNIT_VERSION="8.*"
+    - PHPUNIT_VERSION="8.*"
+    - SYMFONY_PHPUNIT_VERSION="8"
 
 ignore:
     - README.md
@@ -16,9 +17,9 @@ ignore:
 matrix:
     fast_finish: true
     allow_failures:
-        - php:
-            - '7.2'
-            - nightly
+        -   php:
+                - '7.2'
+                - nightly
 
 before_script: composer install
 
