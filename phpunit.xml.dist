@@ -5,6 +5,14 @@
          backupGlobals="false"
          colors="true"
          bootstrap="./tests/bootstrap.php">
+    <php>
+        <ini name="error_reporting" value="-1"/>
+        <env name="SHELL_VERBOSITY" value="3"/>
+        <env name="KERNEL_CLASS" value="Seacommerce\MapperBundle\Test\TestKernel"/>
+        <env name="APP_ENV" value="test"/>
+        <env name="APP_DEBUG" value="1"/>
+        <env name="APP_SECRET" value="s$cretf0rt3st"/>
+    </php>
     <testsuites>
         <testsuite name="Seacommerce Mapper Bundle Suite">
             <directory>./tests</directory>

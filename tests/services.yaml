@@ -5,5 +5,3 @@ services:
         public: false
 
     Seacommerce\MapperBundle\Test\Mock\TestMapping: ~
-
-    Seacommerce\MapperBundle\Test\Mock\Doctrine\DoctrineMapping: ~

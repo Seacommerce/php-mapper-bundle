@@ -3,7 +3,6 @@
 namespace Seacommerce\MapperBundle;
 
 use Psr\Log\LoggerInterface;
-use Seacommerce\Mapper\Compiler\CompilerInterface;
 use Seacommerce\Mapper\Compiler\LoaderInterface;
 use Seacommerce\Mapper\Mapper;
 use Seacommerce\Mapper\MapperInterface;
@@ -19,10 +18,6 @@ class DefaultMapperFactory
      * @var LoggerInterface
      */
     private $logger;
-    /**
-     * @var CompilerInterface
-     */
-    private $compiler;
     /**
      * @var LoaderInterface
      */
