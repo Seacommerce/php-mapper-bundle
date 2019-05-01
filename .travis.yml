@@ -7,7 +7,6 @@ php:
     - nightly
 
 env:
-    - PHPUNIT_VERSION="8.*"
     - SYMFONY_PHPUNIT_VERSION="8"
 
 ignore:
