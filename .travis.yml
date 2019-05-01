@@ -7,7 +7,8 @@ php:
     - nightly
 
 env:
-    - SYMFONY_PHPUNIT_VERSION="8"
+    global:
+        - SYMFONY_PHPUNIT_VERSION="8"
 
 ignore:
     - README.md
